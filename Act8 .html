@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Raphael Chuidian | Portfolio</title>
+  <!-- CSS stylesheet link and Page title -->
+  <title>Raphael Chuidian - NU Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+
+<body>
+<!-- Header section -->
+
+<header>
+      <!-- Top bar -->
+        <div class="top-bar">
+            <span class="date">School Project • Est. 2025</span>
+        </div>
+           <!-- Main header -->
+        <div class="header-main ">
+            <div class="logo" tabindex="0">NU QUEST</div>
+            <p class="tagline">ACT 8</p>
+        </div>
+        <!-- Navigation -->
+        <nav class="navbar container">
+            <a href="Projects.html">BACK TO PORTFOLIO</a>
+             
+        </nav>
+    </header>
+
+
+
+
+  <!-- Main form container -->
+  <div class="container">
+    <h1>Application Form</h1>
+    <!-- Course selection section -->
+    <h3>Application Term & Course/Strand</h3>
+    <form id="course">
+      <label for="campus">Campus:</label>
+      <select name="campus" id="campus">
+        <optgroup label="National Capital Region (NCR)">
+          <option value="NU Manila">NU Manila</option>
+          <option value="NU Fairview">NU Fairview</option>
+          <option value="NU MOA">NU MOA</option>
+          <option value="NU East Ortigas">NU East Ortigas</option>
+          <option value="NU Las Piñas">NU Las Piñas</option>
+        </optgroup>
+
+        <optgroup label="Region III (Central Luzon)">
+          <option value="NU Baliwag">NU Baliwag</option>
+          <option value="NU Clark">NU Clark</option>
+        </optgroup>
+
+        <optgroup label="Region IV-A (CALABARZON)">
+          <option value="NU Dasmariñas">NU Dasmariñas</option>
+          <option value="NU Laguna">NU Laguna</option>
+          <option value="NU Lipa">NU Lipa</option>
+        </optgroup>
+
+        <optgroup label="Region VI (Western Visayas)">
+          <option value="NU Bacolod">NU Bacolod</option>
+        </optgroup>
+
+        <optgroup label="Region VII (Central Visayas)">
+          <option value="NU Cebu">NU Cebu</option>
+        </optgroup>
+
+      </select>
+
+      <label for="academic-year">Academic Year:</label>
+      <select name="Academic year" id="academic-year">
+        <option value="2025-2026">2025-2026</option>
+        <option value="2026-2027">2026-2027</option>
+        <option value="2027-2028">2027-2028</option>
+      </select>
+
+      <label for="academic-term">Academic Term:</label>
+      <select name="academic Term" id="academic-term">
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+      </select>
+
+      <label for="Apply">Applying for:</label>
+      <select name="Apply" id="Apply">
+        <optgroup label="Basic Education">
+          <option value="Grade 11">Grade 11</option>
+          <option value="Grade 12">Grade 12</option>
+        </optgroup>
+        <optgroup label="Higher Education">
+          <option value="Freshman">Freshman</option>
+          <option value="Transferee">Transferee</option>
+          <option value="Second Degree Taker">Second Degree Taker</option>
+          <option value="Cross Enrollee">Cross Enrollee</option>
+          <option value="Graduate Studies">Graduate Studies</option>
+        </optgroup>
+      </select>
+
+      <label for="program">Academic Program:</label>
+      <select name="program" id="program">
+        <optgroup label="SHS">
+          <option value="ABM">Accountancy, Business, and Management (ABM)</option>
+          <option value="HUMSS">Humanities and Social Sciences (HUMSS)</option>
+          <option value="STEM">Science, Technology, Engineering, and Mathematics (STEM)</option>
+        </optgroup>
+        <optgroup label="SEAS">
+          <option value="Communication">Bachelor of Arts in Communication</option>
+          <option value="Political Science">Bachelor of Arts in Political Science</option>
+          <option value="MedTech">Bachelor of Science in Medical Technology</option>
+          <option value="Psychology">Bachelor of Science in Psychology</option>
+        </optgroup>
+        <optgroup label="ASBM">
+          <option value="Accountancy">Bachelor of Science in Accountancy</option>
+          <option value="Marketing">Bachelor of Science in Business Administration (Marketing)</option>
+          <option value="Management Accounting">Bachelor of Science in Management Accounting</option>
+          <option value="Tourism">Bachelor of Science in Tourism Management</option>
+        </optgroup>
+        <optgroup label="SEAT">
+          <option value="Architecture">Bachelor of Science in Architecture</option>
+          <option value="Engineering">Bachelor of Science in Engineering</option>
+          <option value="Computer Engineering">Bachelor of Science in Computer Engineering</option>
+          <option value="IT">Bachelor of Science in IT - Mobile & Web App</option>
+        </optgroup>
+        <optgroup label="ACAD">
+          <option value="Dental Medicine">Doctor of Dental Medicine</option>
+        </optgroup>
+      </select>
+    </form>
+ <!-- Student information section -->
+    <h3>Basic Information</h3>
+    <form id="student-info" action="createACC.html">
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" required>
+
+      <label for="Mname">Middle Name:</label>
+      <input type="text" id="Mname" name="Mname" required>
+
+      <label for="Lname">Last Name:</label>
+      <input type="text" id="Lname" name="Lname" required>
+
+      <label for="birth">Date of Birth:</label>
+      <input type="date" id="birth" name="birth" required>
+
+      <label for="Email">Email Address:</label>
+      <input type="text" id="Email" name="Email" required>
+
+      <label for="Mobile">Mobile No.:</label>
+      <input type="tel" id="Mobile" name="Mobile" required>
+
+      <label for="Nationality">Nationality:</label>
+      <select name="Nationality" id="Nationality" required>
+        <option value="Filipino">Filipino</option>
+        <option value="Afghan">Afghan</option>
+        <option value="Aland Island">Aland Island</option>
+        <option value="Albanian">Albanian</option>
+        <option value="Algerian">Algerian</option>
+      </select>
+
+  <!-- Privacy agreement -->
+      <h3>Data Privacy Agreement</h3>
+      <div class="agreement-box">
+        <input type="checkbox" id="Agreement" name="Agreement" value="Agree" required>
+        <label for="Agreement">
+          <p>By accomplishing this form, I hereby authorize National University to retain, process, disseminate, and use for research purposes all the personal data that I provided.
+I understand and give consent to National University to use these information to communicate with me either via post, telephone, mobile text, email or other way possible.
+In the event that I do not wish to be contacted further, I shall inform the University accordingly.</p>
+        </label>
+      </div>
+
+      <input type="submit" value="SUBMIT" class="project-button">
+    </form>
+  </div>
+</body>
+<!-- Footer section -->
+<footer>
+        <div class="footer-content container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Raphael Chuidian. School Project.</p>
+            </div>
+        </div>
+    </footer>
+</html>

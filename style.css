@@ -1,0 +1,961 @@
+/* ========== ROOT VARIABLES ========== */
+:root {
+    --color-primary: #5a2821;
+    --color-secondary: #8b4e2b;
+    --color-accent: #9e2b2b;
+    --color-text: #3a201a;
+    --color-text-muted: #815f57;
+    --color-background: #f8f1e5;
+    --color-border: #d2c4b6;
+    
+    --font-heading: 'Times New Roman', Times, serif;
+    --font-body: Georgia, serif;
+    --font-masthead: 'Times New Roman', Times, serif;
+    --font-mono: 'Courier New', monospace;
+}
+
+/* ========== BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('background.png');
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+    background-image: url('background.png');
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+header {
+    background: var(--color-primary);
+    color: white;
+    border-bottom: 4px double var(--color-accent);
+}
+
+.top-bar {
+    background: var(--color-primary);
+    color: #d2c4b6;
+    padding: 0.2rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.header-main {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+    position: relative;
+}
+
+.logo {
+    font-family: var(--font-masthead);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+
+.tagline {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #ac9884;
+    font-style: italic;
+    margin-top: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background: rgba(0,0,0,0.1);
+    font-family: var(--font-heading);
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    padding: 0.3rem 0;
+    position: relative;
+    font-weight: bold;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.navbar a.active {
+    color: white;
+    pointer-events: none;
+}
+
+.navbar a.active::after {
+    width: 100% !important;
+    background-color: var(--color-accent);
+}
+
+/* ========== DROPDOWN MENUS ========== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-primary);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 2px solid var(--color-accent);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(210, 196, 182, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn::after {
+    display: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-text-muted);
+}
+
+.dropdown:hover .dropbtn {
+    color: white;
+}
+
+/* ========== PROJECT CARDS ========== */
+.project-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+    padding-top: 50px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.02);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.project-category {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.project-button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    transition: background 0.3s ease;
+}
+
+.project-button:hover {
+    background: var(--color-accent);
+    color: white;
+}
+
+.project-images-row {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-images-row img {
+    width: calc(100% / 3 - 0.33rem);
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-images-row img {
+    transform: scale(1.03);
+}
+
+/* ========== CALENDAR STYLES ========== */
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 100%;
+    height: 500px;
+}
+
+.calendar-table caption {
+    font-size: 50px;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    padding: 20px;
+    caption-side: top;
+}
+ 
+.calendar-table td {
+    border: 2px dotted black;
+    text-align: center;
+    padding: 10px;
+}
+
+.DAYS {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 2px dotted black;
+}
+
+td[title] {
+    position: relative;
+    z-index: 9999;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 16.666%);
+    gap: 10px;
+    padding: 20px;
+}
+
+.month-grid div {
+    padding: 50px;
+    text-align: center;
+}
+
+.month-grid a {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.holiday-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    gap: 10px;
+    padding: 20px;
+}
+
+.holiday-grid div {
+    padding: 50px;
+    text-align: center;
+}
+
+.holiday-grid a {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+[class^="month-"], 
+[class*=" month-"],
+[class^="holiday-"], 
+[class*=" holiday-"] {
+    transition: all 0.3s ease;
+}
+
+[class^="month-"]:hover, 
+[class*=" month-"]:hover,
+[class^="holiday-"]:hover, 
+[class*=" holiday-"]:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ========== RESUME STYLES ========== */
+.resume-container {
+    background-color: var(--color-background);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    border: 1px solid var(--color-border);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+
+.resume-container h1, 
+.resume-container h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.resume-container strong {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.resume-container pre {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    white-space: pre-wrap;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.resume-container a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.resume-container a:hover {
+    text-decoration: underline;
+}
+
+.resume-container hr {
+    border: 0;
+    height: 1px;
+    background: var(--color-border);
+    margin: 1.5rem 0;
+}
+
+/* ========== LYRICS STYLES ========== */
+.lyrics-container {
+    font-family: var(--font-body);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.lyrics-container p {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.nav-back {
+    color: #d2c4b6;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-back:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--color-primary);
+    color: #000000;
+    padding: 2rem 0;
+    border-top: 5px double var(--color-accent);
+    margin-top: auto;
+}
+
+.footer-content {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-bottom {
+    font-size: 0.8rem;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.back-to-top {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
+}
+
+.holidayandmonths {
+    text-align: center;
+    font-size: large;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+    .navbar {
+        gap: 0.5rem;
+    }
+    
+    .month-grid {
+        grid-template-columns: repeat(3, 33.333%);
+    }
+    
+    .holiday-grid {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .month-grid,
+    .holiday-grid {
+        grid-template-columns: 100%;
+    }
+}
+
+/* ========== MONTHS COLORS ========== */
+.month-jan { background-color: #318CE7; } 
+.month-jan, .month-jan a { color: #B9146f; } 
+
+.month-feb { background-color: #E3DAC9; } 
+.month-feb, .month-feb a { color: #6B6251; } 
+
+.month-mar { background-color: #FFC1CC; } 
+.month-mar, .month-mar a { color: #874954; } 
+
+.month-apr { background-color: #92A1CF; } 
+.month-apr, .month-apr a { color: #1A2957; }
+
+.month-may { background-color: #696969; } 
+.month-may, .month-may a { color: #F1F1F1; } 
+
+.month-jun { background-color: #29AB87; } 
+.month-jun, .month-jun a { color: #B1330F; } 
+
+.month-jul { background-color: #B9146f; } 
+.month-jul, .month-jul a { color: #318CE7; } 
+
+.month-aug { background-color: #6B6251; } 
+.month-aug, .month-aug a { color: #E3DAC9; } 
+
+.month-sep { background-color: #874954; } 
+.month-sep, .month-sep a { color: #FFC1CC; } 
+
+.month-oct { background-color: #1A2957; } 
+.month-oct, .month-oct a { color: #92A1CF; } 
+
+.month-nov { background-color: #F1F1F1; } 
+.month-nov, .month-nov a { color: #696969; } 
+
+.month-dec { background-color: #B1330F; } 
+.month-dec, .month-dec a { color: #29AB87; } 
+
+/* ========== HOLIDAY COLORS ========== */
+.holiday-ramadan { background-color: #318CE7; } 
+.holiday-ramadan, .holiday-ramadan a { color: #B9146f; }
+
+.holiday-araw { background-color: #E3DAC9; }
+.holiday-araw, .holiday-araw a { color: #6B6251; }
+
+.holiday-maundy { background-color: #FFC1CC; }
+.holiday-maundy, .holiday-maundy a { color: #874954; }
+
+.holiday-goodfriday { background-color: #92A1CF; }
+.holiday-goodfriday, .holiday-goodfriday a { color: #1A2957; }
+
+.holiday-labor { background-color: #696969; }
+.holiday-labor, .holiday-labor a { color: #F1F1F1; }
+
+.holiday-independence { background-color: #29AB87; }
+.holiday-independence, .holiday-independence a { color: #B1330F; }
+
+.holiday-heroes { background-color: #B9146f; }
+.holiday-heroes, .holiday-heroes a { color: #318CE7; }
+
+.holiday-bonifacio { background-color: #874954; }
+.holiday-bonifacio, .holiday-bonifacio a { color: #FFC1CC; }
+
+.holiday-christmas { background-color: #1A2957; }
+.holiday-christmas, .holiday-christmas a { color: #92A1CF; }
+
+.holiday-rizal { background-color: #F1F1F1; }
+.holiday-rizal, .holiday-rizal a { color: #696969; }
+
+/* ========== FORM STYLES ========== */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    background: rgba(248, 241, 229, 0.7);
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+input[type="submit"] {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background: var(--color-accent);
+}
+
+.agreement-box {
+    background: rgba(248, 241, 229, 0.5);
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+/* ========== ANIMATIONS ========== */
+div.animation1 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    animation-name: animation1;
+    animation-duration: 5s;
+}
+  
+@keyframes animation1 {
+    from {background-color: rgb(255, 140, 0);}
+    to {background-color: rgb(0, 0, 0);}
+}
+
+div.animation2 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    animation-name: animation2;
+    animation-duration: 5s;
+}
+  
+@keyframes animation2 {
+    0%   {background-color: rgb(13, 0, 0);}
+    25%  {background-color: yellow;}
+    50%  {background-color: rgb(0, 0, 0);}
+    100% {background-color: yellow;}
+}
+
+div.animation3 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation3;
+    animation-duration: 5s;
+}
+  
+@keyframes animation3 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+div.animation4 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation4;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+  
+@keyframes animation4 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+div.animation5 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation5;
+    animation-duration: 4s;
+    animation-iteration-count: 3;
+}
+  
+@keyframes animation5 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+div.animation6 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation6;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+  
+@keyframes animation6 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+div.animation7linear {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 221, 255);
+    font-weight: bold;
+    position: relative;
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+}
+  
+#div1 {animation-timing-function: linear;}
+  
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+div.animation7ease {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 221, 255);
+    font-weight: bold;
+    position: relative;
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+}
+  
+#div2 {animation-timing-function: ease;}
+  
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+div.animation7ease-in {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 221, 255);
+    font-weight: bold;
+    position: relative;
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+}
+  
+#div3 {animation-timing-function: ease-in;}
+  
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+div.animation7ease-out {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 221, 255);
+    font-weight: bold;
+    position: relative;
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+}
+  
+#div4 {animation-timing-function: ease-out;}
+  
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+div.animation7ease-in-out {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 221, 255);
+    font-weight: bold;
+    position: relative;
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+}
+  
+#div5 {animation-timing-function: ease-in-out;}
+  
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+div.animation8 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation8;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+  
+@keyframes animation8 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+  
+div.animation9 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: animation9;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+  
+@keyframes animation9 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+div.animation10 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation: animation10 5s linear 2s infinite alternate;
+}
+  
+@keyframes animation10 {
+    0%   {background-color:rgb(0, 255, 195); left:0px; top:0px;}
+    25%  {background-color:rgb(0, 234, 255); left:500px; top:0px;}
+    50%  {background-color:rgb(0, 162, 255); left:500px; top:500px;}
+    75%  {background-color:rgb(0, 123, 255); left:0px; top:500px;}
+    100% {background-color:rgb(0, 0, 255); left:0px; top:0px;}
+}
+
+/* ========== TRANSITION STYLES ========== */
+.translate {
+    width: 400px;
+    height: 300px;
+    background-color: rgb(233, 233, 221);
+    border: 1px solid rgb(185, 103, 233);
+    transform: translate(50px,100px);
+}
+
+.transition1 {
+    width: 100px;
+    height: 100px;
+    background: rgb(0, 242, 255);
+    transition: width 2s;
+}
+
+.transition1:hover {
+    width: 400px;
+}
+
+.transition2 {
+    width: 100px;
+    height: 100px;
+    background: rgb(0, 242, 255);
+    transition: width 2s, height 4s;
+}
+
+.transition2:hover {
+    width: 400px;
+    height: 400px;
+}
+
+.transition3 {
+    width: 100px;
+    height: 100px;
+    background:  rgb(0, 242, 255);
+    transition: width 3s;
+    transition-delay: 1s;
+}
+
+.transition3:hover {
+    width: 400px;
+}
+
+.transition4 {
+    width: 100px;
+    height: 100px;
+    background:  rgb(0, 242, 255);
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.transition4:hover {
+    width: 400px;
+    height: 400px;
+    transform: rotate(180deg);
+}
+
+/* ========== INTRO SECTION ========== */
+.intro-section {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.intro-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.intro-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ========== TARGET HIGHLIGHT ========== */
+:target {
+    scroll-margin-top: 100px;
+}
+
+@keyframes soft-highlight {
+    0% { background-color: white; }
+    30% { background-color: rgba(158, 43, 43, 0.4); }
+    100% { background-color: white; }
+}
+
+:target {
+    animation: soft-highlight 1.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+/* ========== SMOOTH SCROLLING ========== */
+html {
+    scroll-behavior: smooth;
+}
